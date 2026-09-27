@@ -1,0 +1,45 @@
+FACTORIAL PROGRAM
+
+1. TITLE
+Factorial of a Number
+
+2. PROBLEM STATEMENT
+Write a program to find the factorial of a given number.
+
+3. ALGORITHM
+1. Start
+2. Read the number n.
+3. Set fact = 1.
+4. Repeat from 1 to n.
+5. Calculate fact = fact × i.
+6. Display the factorial.
+7. Stop.
+
+4. PROGRAM
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    long long fact = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        fact = fact * i;
+    }
+
+    printf("Factorial = %lld", fact);
+
+    return 0;
+}
+
+5. SAMPLE INPUT
+Enter a number: 5
+
+6. SAMPLE OUTPUT
+Factorial = 120
+
+7. RESULT
+Thus, the factorial of the given number was calculated successfully.
