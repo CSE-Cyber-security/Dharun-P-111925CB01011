@@ -1,0 +1,50 @@
+# Daily Expense Tracker
+
+class ExpenseTracker:
+    def __init__(self):
+        self.expenses = []
+
+    def add_expense(self):
+        try:
+            category = input("Enter category (e.g., Food, Transport, College): ").strip()
+            amount = float(input("Enter amount (Rs): "))
+            if amount <= 0:
+                print("Error: Amount must be greater than zero.")
+                return
+            self.expenses.append({"category": category, "amount": amount})
+            print(f"Added Rs {amount:.2f} under '{category}'.")
+        except ValueError:
+            print("Invalid input! Please enter a valid number.")
+
+    def view_expenses(self):
+        if not self.expenses:
+            print("\nNo expenses recorded yet.")
+            return
+
+        print("\n--- Expense List ---")
+        total = 0
+        for idx, item in enumerate(self.expenses, 1):
+            print(f"{idx}. {item['category']}: Rs {item['amount']:.2f}")
+            total += item['amount']
+        print(f"Total: Rs {total:.2f}\n")
+
+    def run(self):
+        while True:
+            print("\n=== Daily Expense Tracker ===")
+            print("1. Add Expense")
+            print("2. View Expenses & Total")
+            print("3. Exit")
+            choice = input("Enter choice (1-3): ").strip()
+            if choice == '1':
+                self.add_expense()
+            elif choice == '2':
+                self.view_expenses()
+            elif choice == '3':
+                print("Exiting tracker. Goodbye!")
+                break
+            else:
+                print("Invalid choice!")
+
+if __name__ == "__main__":
+    tracker = ExpenseTracker()
+    tracker.run()
